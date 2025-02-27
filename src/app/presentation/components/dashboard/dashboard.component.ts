@@ -39,7 +39,7 @@ import { ViewType } from '../../../domain/enums/view-type.enum';
 
       <div class="content">
         <ng-container *ngIf="view.data$ | async as data">
-          <ng-container *ngIf="data.length; else loading">
+          <ng-container *ngIf="data.length;">
             <app-chart
               *ngIf="currentView === 'chart'"
               [data]="data"
