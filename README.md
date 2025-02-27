@@ -25,7 +25,6 @@ This project implements Clean Architecture principles with a clear separation of
 - `DashboardView`: Encapsulates reactive data flow
   - Manages loading states via `BehaviorSubject`
   - Handles data streaming with RxJS operators
-  - Error handling and data transformation
 
 ### Dumb Components
 - `ChartComponent`: Visualizes data in graph format
@@ -34,7 +33,6 @@ This project implements Clean Architecture principles with a clear separation of
 
 ## Infrastructure Layer
 - HTTP services for COVID-19 API integration
-- Data providers with error handling
 
 ## Technical Implementation
 - Angular 19.1.8 with standalone components
