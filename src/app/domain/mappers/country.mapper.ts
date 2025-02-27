@@ -1,5 +1,5 @@
-import { CountryEntity } from '../entities/contry.entity';
-import {CountryResponse} from '../repositories/covid-data.repository';
+import { CountryEntity } from '../entities/country.entity';
+import { CountryResponse } from '../repositories/covid-data.repository';
 
 export class CountryMapper {
   static fromApi(response: CountryResponse): CountryEntity {

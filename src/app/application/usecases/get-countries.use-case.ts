@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { CovidDataRepository } from '../../domain/repositories/covid-data.repository';
-import { CountryEntity } from '../../domain/entities/contry.entity';
+import { CountryEntity } from '../../domain/entities/country.entity';
 import { CountryMapper } from '../../domain/mappers/country.mapper';
 
 @Injectable()
