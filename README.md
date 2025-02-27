@@ -1,59 +1,44 @@
-# Covid19DashboardSpa
+# Covid19 Dashboard - Architecture Overview
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.8.
+A Single Page Application (SPA) built with Angular that provides interactive visualization of COVID-19 data. 
 
-## Development server
+## Architecture
 
-To start a local development server, run:
+This project implements Clean Architecture principles with a clear separation of concerns:
 
-```bash
-ng serve
-```
+## Domain Layer
+- `CovidDataEntity`: Core data structure with essential COVID-19 statistics (cases, deaths, recovered)
+- `ViewType` enum: Defines available visualization modes (chart/table)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Application Layer
+- `GetCovidDataUseCase`: Handles data retrieval operations with country and period parameters
+- Centralizes business logic for COVID-19 data processing
 
-## Code scaffolding
+## Presentation Layer
+### Smart Components
+- `DashboardComponent`: Main container managing view state and user interactions
+  - Handles view type switching (chart/table)
+  - Manages filters and data loading
+  - Implements responsive layout
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Presentation Logic
+- `DashboardView`: Encapsulates reactive data flow
+  - Manages loading states via `BehaviorSubject`
+  - Handles data streaming with RxJS operators
+  - Error handling and data transformation
 
-```bash
-ng generate component component-name
-```
+### Dumb Components
+- `ChartComponent`: Visualizes data in graph format
+- `TableComponent`: Displays data in tabular format
+- `FiltersComponent`: User input for country and period selection
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Infrastructure Layer
+- HTTP services for COVID-19 API integration
+- Data providers with error handling
 
-```bash
-ng generate --help
-```
+## Technical Implementation
+- Angular 19.1.8 with standalone components
+- Angular Material for UI (MatButtonToggle, MatIcon, MatSpinner)
+- RxJS for reactive state management
+- TypeScript for type safety
 
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
